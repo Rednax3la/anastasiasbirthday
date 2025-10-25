@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Anastasia</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎭</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c1810;
+            --secondary: #d4af37;
+            --accent: #a0522d;
+            --light: #f5f1e8;
+            --dark: #1a110b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 25s infinite linear;
+        }
+
+        .element:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 10%;
+            background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+            animation-delay: 0s;
+        }
+
+        .element:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            left: 80%;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            animation-delay: -7s;
+        }
+
+        .element:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            top: 80%;
+            left: 20%;
+            background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+            animation-delay: -12s;
+        }
+
+        .element:nth-child(4) {
+            width: 120px;
+            height: 120px;
+            top: 30%;
+            left: 70%;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            animation-delay: -18s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+            33% {
+                transform: translateY(-40px) rotate(120deg) scale(1.1);
+            }
+            66% {
+                transform: translateY(30px) rotate(240deg) scale(0.9);
+            }
+            100% {
+                transform: translateY(0) rotate(360deg) scale(1);
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .message-card {
+            background: rgba(28, 20, 13, 0.8);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--light);
+            opacity: 0.8;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .birthday-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .message-section {
+            margin-bottom: 40px;
+        }
+
+        .message-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .message-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            color: #e8e2d4;
+        }
+
+        .highlight {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        .tech-note {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 3px solid var(--secondary);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 30px 0;
+            font-style: italic;
+        }
+
+        .portfolio-request {
+            background: rgba(160, 82, 45, 0.1);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid rgba(160, 82, 45, 0.3);
+        }
+
+        .portfolio-request h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .birthday-wish {
+            text-align: center;
+            margin: 50px 0 30px;
+            padding: 30px;
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .birthday-wish h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .birthday-wish p {
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 50px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #a0927c;
+        }
+
+        .emoji {
+            font-size: 1.5rem;
+            margin: 0 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .message-card {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .message-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="element"></div>
+        <div class="element"></div>
+        <div class="element"></div>
+        <div class="element"></div>
+    </div>
+
+    <div class="container">
+        <div class="message-card">
+            <div class="header">
+                <h1>For Anastasia</h1>
+                <div class="subtitle">A Birthday Message From An Old Friend</div>
+                <div class="birthday-badge">🎂 Happy Birthday! 🎉</div>
+            </div>
+
+            <div class="message-section">
+                <h2>From Childhood to Stardom</h2>
+                <p>Dear Anastasia,</p>
+                <p>It's been quite a journey watching you transform from that girl I knew in childhood to the incredible actress you are today. While we don't talk as often as we probably should, I want you to know that I've followed your career with genuine admiration and pride.</p>
+                <p>I'm truly grateful to still be among the few who have access to the real you behind the spotlight. That connection means more than you might realize.</p>
+            </div>
+
+            <div class="message-section">
+                <h2>A Saturday Birthday</h2>
+                <p>I hope you're having as <span class="highlight">lit</span> a celebration as I imagine it to be! Saturday birthdays are pretty rare and special - the universe definitely planned it that way for someone as extraordinary as you.</p>
+                <p>May this year bring you even more success, joy, and fulfillment than the last. You've earned every bit of the amazing life you're living.</p>
+            </div>
+
+            <div class="tech-note">
+                <p><span class="highlight">Tech Bro Confession:</span> So I've become a bit of a tech bro these days, which explains this website. It takes me about 15-20 minutes to put something like this together, so I figured why not do it for an old friend? Consider it a digital birthday card with a personal touch.</p>
+            </div>
+
+            <div class="portfolio-request">
+                <h3>A Creative Request</h3>
+                <p>Speaking of personal touches, I've continued perfecting my art over the years and I'm currently working on growing my portfolio with a specific focus.</p>
+                <p>I'm trying to target celebrity portraits (because why not aim high, right? 😂), and it only makes sense to start with people I can actually talk to.</p>
+                <p>Would you be open to me drawing you again? It would be an honor to feature someone of your caliber in my portfolio. Think about it - no pressure at all!</p>
+            </div>
+
+            <div class="birthday-wish">
+                <h3>Birthday Blessing</h3>
+                <p>May your special day be filled with laughter that echoes in your heart throughout the year, joy that multiplies with each passing moment, and love that surrounds you always.</p>
+                <p>May your career continue to shine brighter than the spotlight that follows you, and may you find fulfillment in both your professional achievements and personal journey.</p>
+                <p>Happy Birthday, Anastasia! <span class="emoji">🎂</span><span class="emoji">⭐</span><span class="emoji">🎭</span></p>
+            </div>
+
+            <div class="signature">
+                With warmest wishes,<br>
+                Your childhood friend
+            </div>
+        </div>
+
+        <div class="footer">
+            Made with code & nostalgia • Birthday 2025
+        </div>
+    </div>
+
+    <script>
+        // Add subtle typewriter effect to the first paragraph
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstParagraph = document.querySelector('.message-section:first-of-type p:not(:first-child)');
+            if (firstParagraph) {
+                const text = firstParagraph.textContent;
+                firstParagraph.textContent = '';
+                
+                let i = 0;
+                const typeWriter = () => {
+                    if (i < text.length) {
+                        firstParagraph.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 30);
+                    }
+                };
+                
+                // Start the typewriter effect after a short delay
+                setTimeout(typeWriter, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
